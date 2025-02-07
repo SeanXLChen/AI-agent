@@ -1,8 +1,10 @@
 import bs4
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_chroma import Chroma
+from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 
-
+DB_PATH = "./retailer_db"
 
 CLASSES = [
     ["item-title shokz_sans_display","item-subtitle shokz_sans_display", "item-content"],
@@ -87,7 +89,20 @@ def main():
         print(f"Content length: {len(split.page_content)} characters")
         print(split.page_content[:100] + "...")
 
-    return all_splits
+    ## Load products into vector database
+    
+    # Initialize embedding model
+    embed_model = FastEmbedEmbeddings(model_name="BAAI/bge-base-en-v1.5")
+    
+    # Initialize vector database
+    vector_store = Chroma(
+        collection_name="infos",
+        embedding_function=embed_model,
+        persist_directory=DB_PATH
+    )
+    
+    document_ids = vector_store.add_documents(documents=all_splits)
+    print(f"Added {len(document_ids)} documents to vector database")
 
 if __name__ == "__main__":
     main()
