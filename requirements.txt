@@ -1,0 +1,17 @@
+beautifulsoup4
+langgraph
+langgraph-sdk
+langgraph-checkpoint-sqlite
+langsmith
+langchain-community
+langchain-core
+# langchain-openai
+langchain-anthropic
+notebook
+tavily-python
+wikipedia
+trustcall
+langgraph-cli
+fastembed
+chromadb
+langchain-chroma>=0.1.2
