@@ -11,3 +11,6 @@ $ . venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
+
+
+LangChain RAG pipeline tutorial: https://python.langchain.com/docs/tutorials/rag/
