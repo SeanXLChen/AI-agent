@@ -1,5 +1,16 @@
 # AI-agent shopping assistant
 
+## Overview
+This is a shopping assistant built with LangGraph and LangChain. The underlying idea is to build a ReAct agent with RAG functionality. It can answer questions about the products and the company and give product recommendations. I use [Shokz Canada](https://ca.shokz.com/) store as an example to build the agent.
+
+## Workflow
+![Workflow](./asset/workflow.png)
+
+## Features
+- Give smart product recommendations based on the user's search query
+- Give factual information about the company and the products
+- Give comparison between products
+
 ## Setup
 
 ### Create an environment and install dependencies
@@ -37,9 +48,6 @@ $ python load_others.py
 
 ### Run the assistant
 open langgraph studio and run the assistant
-
-
-
 
 ---
 ## References
